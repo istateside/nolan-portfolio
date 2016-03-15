@@ -1,6 +1,18 @@
 {
   "name": "aubrey-portfolio",
   "version": "0.0.1",
-  "description": "Portfolio site for Aubrey",
-  "author": "Kevin Fleischman <kevinrfleischman@gmail.com>"
+  "description": "Portfolio for Aubrey",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:istateside/nolan-portfolio"
+  },
+  "author": "Kevin Fleischman <kevinrfleischman@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
