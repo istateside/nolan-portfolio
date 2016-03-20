@@ -1,5 +1,7 @@
+const autoprefixer = require('autoprefixer');
+
 module.exports = {
-  entry: getEntrySources(['./src/js/entry.js']),
+  entry: getEntrySources(['./src/entry.js']),
   output: {
     publicPath: 'http://localhost:8080',
     filename: 'build/bundle.js',
@@ -20,7 +22,7 @@ module.exports = {
         loaders: [
           'style',
           'css',
-          'autoprefixer?browsers=last 3 versions',
+          'postcss',
           'sass?outputStyle=expanded'
         ]
       },
@@ -29,10 +31,17 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loaders: [
           'react-hot',
-          'babel?presets[]=stage-0,presets[]=react,preset[]=es2015'
-        ]
-      }
+          'babel?presets[]=react,presets[]=es2015'
+        ],
+      },
     ]
+  },
+  postcss: function() {
+    return [autoprefixer];
+  },
+  resolve: {
+    extensions: ['', '.js', '.scss'],
+    modulesDirectories: ['src', 'node_modules'],
   }
 }
 
