@@ -1,5 +1,21 @@
-import 'scss/base';
+import 'css/base.css';
 
-console.log("THIS IS A TEST");
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-console.log("THIS IS ALSO A TEST");
+console.log ("TEST");
+const App = React.createClass({
+  displayName: "App",
+  
+  render() {
+    return (
+      <div className="App">
+        <div className="App-item">
+          <h1>Test</h1>
+        </div>
+      </div>
+    )
+  }
+});
+
+ReactDOM.render(<App/>, document.getElementById('page'));
