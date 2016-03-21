@@ -1,17 +1,18 @@
 const autoprefixer = require('autoprefixer');
-const variables = require('postcss-simple-vars');
-const nested = require('postcss-nested');
+const variables    = require('postcss-simple-vars');
+const nested       = require('postcss-nested');
+const importer     = require('postcss-import');
 
 module.exports = {
   entry: './src/entry.js',
   output: {
-    publicPath: 'http://localhost:8080',
-    filename: 'build/bundle.js',
+    publicPath: 'http://localhost:8080/build',
+    filename: 'bundle.js',
   },
   module: {
     preLoaders: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'source-map',
       }
@@ -23,7 +24,7 @@ module.exports = {
         loader: "style-loader!css-loader!postcss-loader!"
       },
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loaders: [
           'react-hot',
@@ -36,11 +37,15 @@ module.exports = {
       },
     ],
   },
-  postcss: function() {
-      return [autoprefixer({ browsers: ["last 2 versions"]}), nested, variables];
+  postcss: function(webpack) {
+      return [
+        autoprefixer({ browsers: ["last 2 versions"]}),
+        nested,
+        variables,
+        importer({addDependencyTo: webpack})];
   },
   resolve: {
-    extensions: ['', '.js', '.css'],
+    extensions: ['', '.js', '.jsx', '.css'],
     modulesDirectories: ['src', 'node_modules'],
   }
 }

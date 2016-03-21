@@ -1,21 +1,10 @@
+console.clear();
 import 'css/base.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { App } from './js/components/App.jsx';
 
-console.log ("TEST");
-const App = React.createClass({
-  displayName: "App",
-  
-  render() {
-    return (
-      <div className="App">
-        <div className="App-item">
-          <h1>Test</h1>
-        </div>
-      </div>
-    )
-  }
-});
+console.log("Initialized.");
 
 ReactDOM.render(<App/>, document.getElementById('page'));
