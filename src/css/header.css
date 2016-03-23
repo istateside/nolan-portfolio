@@ -34,41 +34,11 @@ header {
     }
 
     &__back {
-      animation: shift 4s infinite;
       position: absolute;
       top: 7px;
       left: 15px;
       z-index:1;
       opacity: .2;
     }
-  }
-}
-
-$baseTop: 7px;
-$baseLeft: 15px;
-@keyframes shift {
-  0% {
-    top: $baseTop;
-    left: $baseLeft;
-  }
-  
-  25% {
-    top: $baseTop + 1;
-    left: $baseLeft + 1;
-  }
-  
-  50% {
-    top: $baseTop + 2;
-    left: $baseLeft + 2;
-  }
-  
-  75% {
-    top: $baseTop + 1;
-    left: $baseLeft + 1;
-  }
-  
-  100% {
-    top: $baseTop;
-    left: $baseLeft;
   }
 }
