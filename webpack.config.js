@@ -6,7 +6,7 @@ const importer     = require('postcss-import');
 module.exports = {
   entry: './src/entry.js',
   output: {
-    publicPath: 'http://localhost:8080/build',
+    publicPath: '/build',
     filename: 'bundle.js',
   },
   module: {

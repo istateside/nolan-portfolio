@@ -42,3 +42,15 @@ header {
     }
   }
 }
+
+@media screen and (max-width: 550px) {
+  .horizontal-list {
+    display: block;
+    
+    li {
+      display: block;
+      text-align: center;
+      margin: 10px 0;
+    }
+  }
+}

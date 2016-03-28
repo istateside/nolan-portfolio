@@ -1,10 +1,8 @@
 console.clear();
-import 'css/base.css';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { App } from './js/components/App.jsx';
+import 'css/base.css'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { AppRouter } from './js/components/AppRouter.jsx'
 
-console.log("Initialized.");
-
-ReactDOM.render(<App/>, document.getElementById('page'));
+ReactDOM.render(<AppRouter/>, document.getElementById('page'));

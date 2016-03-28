@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export class NavItem extends React.Component {
   render() {
     return (
-      <li><a href={this.props.href}>{this.props.label}</a></li>
+      <li><Link to={this.props.href}>{this.props.label}</Link></li>
     )
   }
 }

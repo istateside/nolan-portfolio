@@ -1,5 +1,19 @@
 $background: #c4ffe0;
 body {
-  background: $background;
+  background: linear-gradient(to right, #f3e8ff 0%,#ffe4cc 100%);
+  font-size: 20px;
   font-family:'Open Sans', sans-serif;
+}
+
+#page {
+  background: $background;
+  padding: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
 }

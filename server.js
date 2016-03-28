@@ -32,9 +32,7 @@ passport.use(new LocalStrategy(
       return done(null, user);
     }, function() {
       return done(null, false, { message: "Bad login." });
-    }
-    if (username === "admin" && password === "password") {
-    }
+    })
   }
 ));
 
@@ -44,14 +42,13 @@ const User = sequelize.define("User", {
 });
 
 sequelize.sync().then(function() {
-  User
-    .findOrCreate({where: { username: 'admin' }, defaults: { password: 'password'}})
-    .spread(function(user, was_created) {
-      console.log("User instantiated. Found?", was_created, user);
-    });
+  User.findOrCreate({
+    where: { username: 'admin' },
+    defaults: { password: 'password' }
+  });
 });
 
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
   res.render("index");
 });
 
@@ -63,7 +60,7 @@ app.post('/admin', passport.authenticate('local', {
   successRedirect: "/",
   failureRedirect: "/admin",
   failureFlash: true
-}););
+}));
 
 app.listen(3000, function()  {
   console.log("App listening on port 3000.");

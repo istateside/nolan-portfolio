@@ -13,11 +13,11 @@ export class Header extends React.Component {
   
   render() {
     const links = [
-      { href: "#", label: "Home" },
+      { href: "/", label: "Home" },
       { href: "#", label: "Illustration" },
       { href: "#", label: "What Type of Girl?" },
       { href: "#", label: "Zine" },
-      { href: "#", label: "About/Contact" },
+      { href: "/contact", label: "About/Contact" },
     ];
     
     return (
