@@ -1,15 +1,14 @@
 const express = require('express');
 const app     = express();
 
-const cookieParser = require('cookie-parser');
-
-const passport = require('passport')
+const cookieParser  = require('cookie-parser');
+const passport      = require('passport')
 const LocalStrategy = require('passport-local').Strategy;
 
-const Sequelize = require('sequelize');
-const session = require('express-session');
+const Sequelize      = require('sequelize');
+const session        = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const sequelize = new Sequelize('aubrey_dev', 'root', '');
+const sequelize      = new Sequelize('aubrey_dev', 'root', '');
 
 sequelize.authenticate().then(
   function() { console.log("Fuck yeah! db connected."); },
@@ -21,6 +20,7 @@ app.use(session({
   secret: "thisisasecret",
   store: new SequelizeStore({db:sequelize}) ,
 }));
+
 app.use(cookieParser());
 
 app.use(passport.initialize());
@@ -49,11 +49,7 @@ sequelize.sync().then(function() {
 });
 
 app.get('*', function(req, res) {
-  res.render("index");
-});
-
-app.get('/admin', function(req, res) {
-  res.render("login");
+  res.render("index.html");
 });
 
 app.post('/admin', passport.authenticate('local', {
