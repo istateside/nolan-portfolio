@@ -15,12 +15,11 @@ export class AppRouter extends React.Component {
       <Route path='/' component={App}>
         <IndexRoute component={Home}/>
         <Route path="contact" component={About}/>
-        
-        <Route path="/admin" component={Admin}>
-          <Route path="login" component={Login} />
-          <Route path="logout" component={Logout} />
-          <Route path="dashboard" onEnter={this.requireAuth} component={Dashboard}/>
-        </Route>
+      </Route>
+      <Route path="/admin" component={Admin}>
+        <Route path="login" component={Login} />
+        <Route path="logout" component={Logout} />
+        <Route path="dashboard" onEnter={this.requireAuth} component={Dashboard}/>
       </Route>
     </Router>)
   }
