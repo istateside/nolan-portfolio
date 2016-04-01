@@ -1,8 +1,22 @@
+@import "reset";
+
 $background: #c4ffe0;
+$blue: #551A8B;
+$gray: #666;
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: linear-gradient(to right, #f3e8ff 0%,#ffe4cc 100%);
+  color:$gray;
   font-size: 20px;
   font-family:'Open Sans', sans-serif;
+}
+
+a {
+  color: $blue;
 }
 
 #page {
@@ -15,5 +29,17 @@ body {
 @media screen and (max-width: 768px) {
   body {
     font-size: 14px;
+  }
+}
+
+.mobile-only {
+  @media screen and (min-width: 551px) {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .page-content {
+    margin-top: 75px;
   }
 }

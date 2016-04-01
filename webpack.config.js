@@ -1,5 +1,6 @@
 const autoprefixer = require('autoprefixer');
-const variables    = require('postcss-simple-vars');
+const colors       = require('./src/css/variables.js');
+const variables    = require('postcss-simple-vars')({ variables: colors });
 const nested       = require('postcss-nested');
 const importer     = require('postcss-import');
 

@@ -21,7 +21,7 @@ export class Header extends React.Component {
     ];
     
     return (
-      <header>
+      <header className="header">
         <Title />
         <MainNav links={links} />
       </header>

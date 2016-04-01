@@ -12,13 +12,22 @@ export class NavItem extends React.Component {
 export class MainNav extends React.Component {
   render() {
     return (
-      <nav className='mainNav'>
-        <ul className="horizontal-list">
-          {this.props.links.map((link, idx) => {
-            return <NavItem key={`link-${idx}`} href={link.href} label={link.label} />
-          })}
-        </ul>
-      </nav>
+      <div className="nav-wrapper">
+        <button className="hamburger js-nav-toggle mobile-only" ref='nav-toggle' onClick={this.toggleNav.bind(this)}>
+          <div className="hamburger__inner"></div>
+        </button>
+        <nav className='mainNav' ref='nav'>
+          <ul className="horizontal-list">
+            {this.props.links.map((link, idx) => {
+              return <NavItem key={`link-${idx}`} href={link.href} label={link.label} />
+            })}
+          </ul>
+        </nav>
+      </div>
     );
+  }
+  
+  toggleNav() {
+    this.refs.nav.classList.toggle('-is-visible');
   }
 }

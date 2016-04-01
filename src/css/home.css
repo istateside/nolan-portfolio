@@ -1,11 +1,16 @@
 .home {
+  
+  &__title {
+    text-transform: uppercase;
+    font-family: "Offside";
+  }
 
-  &--promos {
+  &__promos {
     /*display: flex;
     justify-content: space-between;*/
   }
   
-  &--promo {
+  &__promo {
     display: inline-block;
     width: 33.3%;
     width: calc((100% - 40px) / 3);
@@ -23,24 +28,25 @@
     }
   }
   
+  
   @media screen and (max-width: 768px) {
-    &--promos {
+    &__promos {
       text-align: center;
     }
-    &--promo {
+    &__promo {
       margin-top: 20px;
       vertical-align: top;
     }
   }
   
   @media screen and (max-width: 768px) and (min-width: 551px) {
-    &--promo {
+    &__promo {
       &.-size-tall {
         width: 50%;
         width: calc((100% - 10px) / 2);
         margin-right: 10px;
         
-        & + .home--promo {
+        & + .home__promo {
           margin-right: 0;
         }
       }
@@ -53,7 +59,7 @@
   }
   
   @media screen and (max-width: 550px) {
-    &--promo {
+    &__promo {
       margin-right: 0;
       width: 100%;
     }

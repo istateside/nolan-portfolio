@@ -1,7 +1,14 @@
-@import "reset";
-
-header {
+.header {
   text-transform: uppercase;
+  
+  @media (max-width: 550px) {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    width: calc(100% - 16px);
+    padding: 8px;
+    background: $green;
+  }
 }
 
 .horizontal-list {
@@ -13,9 +20,55 @@ header {
   }
 }
 
+.hamburger {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 40px;
+  width: 35px;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &__inner {
+    
+    &,
+    &:after,
+    &:before {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: $gray;
+      position: absolute;
+      content: "";
+    }
+    
+    &:before {
+      bottom: 10px;
+    }
+    
+    &:after {
+      top: 10px;
+    }
+    
+  }
+}
+
 .mainNav {
   font-family: "Offside";
   max-width: 800px;
+  
+  @media screen and (max-width: 550px) {
+    transition: height .3s ease-in-out;
+    height: 0px;
+    overflow: hidden;
+    
+    &.-is-visible {
+      height: 160px;
+    }
+  }
 }
 
 /* Title.jsx */

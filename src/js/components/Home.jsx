@@ -34,10 +34,10 @@ export default class Home extends React.Component {
     )
     
     return (
-      <div className='page-content home'>
-        <h2 className="home--title">Recently...</h2>
+      <div className='home'>
+        <h2 className="home__title">Recently...</h2>
         
-        <div className='home--promos'>
+        <div className='home__promos'>
           {promos}
         </div>
       </div>
@@ -47,11 +47,11 @@ export default class Home extends React.Component {
 
 export class HomePromo extends React.Component {
   render() {
-    const classStr = `home--promo ${this.props.className}`;
+    const classStr = `home__promo ${this.props.className}`;
     return (
       <figure className={classStr}>
-        <img className="home--promo_img" src={this.props.src} />
-        <figcaption className="home--promo__caption">{this.props.caption_html}</figcaption>
+        <img className="home__promo_img" src={this.props.src} />
+        <figcaption className="home__promo__caption">{this.props.caption_html}</figcaption>
       </figure>
     )
   }
