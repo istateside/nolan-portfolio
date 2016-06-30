@@ -1,17 +1,32 @@
 import React from 'react'
 import AuthHandler from '../../authHandler.js'
+import { AdminHeader } from './AdminHeader.jsx'
 const auth = new AuthHandler();
+
 
 export class Admin extends React.Component {
   constructor(props) {
     super(props);
+    
+    this.state = { loggedIn: auth.loggedIn()};
+  }
+  
+  updateAuth(loggedIn) {
+    this.setState({
+      loggedIn
+    });
+  }
+  
+  componentWillMount() {
+    auth.onChange = this.updateAuth.bind(this);
+    auth.login();
   }
   
   render() {
     return (
       <div className="admin-page">
         Admin
-        
+        <AdminHeader loggedIn={this.state.loggedIn} />
         {this.props.children}
       </div>
     )
@@ -62,7 +77,7 @@ export class Login extends React.Component {
       if (location.state && location.state.nextPathname) {
         this.context.router.replace(location.state.nextPathname)
       } else {
-        this.context.router.replace('/')
+        this.context.router.replace('/admin/dashboard')
       }
     })
   }
