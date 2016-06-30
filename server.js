@@ -1,5 +1,6 @@
 const express = require('express');
 const app     = express();
+const path    = require('path');
 
 const cookieParser  = require('cookie-parser');
 const passport      = require('passport')
@@ -15,7 +16,7 @@ sequelize.authenticate().then(
   function() { console.log("Fuck! db error."); }
 );
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/build'));
 app.use(session({
   secret: "thisisasecret",
   store: new SequelizeStore({db:sequelize}) ,
@@ -49,7 +50,7 @@ sequelize.sync().then(function() {
 });
 
 app.get('*', function(req, res) {
-  res.render("index.html");
+  res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.post('/admin', passport.authenticate('local', {

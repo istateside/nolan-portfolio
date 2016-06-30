@@ -8,19 +8,19 @@ export default class Home extends React.Component {
     this.state = { promos: [
       {
         className: '-size-tall',
-        src: "/src/img/panels.jpeg",
+        src: "/panels.jpeg",
         caption_html: "Monthly comic readings in NYC. /  host, curator."
       },
       {
         className: '-size-tall',
-        src: "/src/img/what-type.jpeg",
+        src: "/what-type.jpeg",
         caption_html: "What Type of Girl / three longform comics displayed" + 
           " in a solo show at Babycastles (art, music, & independent video " + 
           "game venue in NYC) on February 4, 2016."
       },
       {
         className: '-size-wide',
-        src: "/src/img/publicity.gif",
+        src: "/publicity.gif",
         caption_html: "Publicity art for Yesterday Was Beautiful / play by " + 
           "Andy Boyd & Blythe Roberson, featured at New York Fringe Festival." +
           "\nGIF design by Jordan Rosenberg."

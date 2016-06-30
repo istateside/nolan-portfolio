@@ -38,7 +38,7 @@ export default class About extends React.Component {
             <h3 className="about--header__text -color-pink">Contact</h3>
           </div>
           <div className="about--header__block">
-            <img className="about--header__img" src="/src/img/houses.jpg"/>
+            <img className="about--header__img" src="/houses.jpg"/>
           </div>
         </div>
         

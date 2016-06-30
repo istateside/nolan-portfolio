@@ -36,6 +36,10 @@ module.exports = {
         test: /\.html$/,
         loader: "file?name=[name].[ext]",
       },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        loader: "url?limit=8192"
+      }
     ],
   },
   postcss: function(webpack) {

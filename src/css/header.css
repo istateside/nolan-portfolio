@@ -3,7 +3,7 @@
   
   @media (max-width: 550px) {
     position: fixed;
-    top: 8px;
+    top: 0px;
     left: 8px;
     width: calc(100% - 16px);
     padding: 8px;

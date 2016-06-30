@@ -4,11 +4,6 @@
     text-transform: uppercase;
     font-family: "Offside";
   }
-
-  &__promos {
-    /*display: flex;
-    justify-content: space-between;*/
-  }
   
   &__promo {
     display: inline-block;
