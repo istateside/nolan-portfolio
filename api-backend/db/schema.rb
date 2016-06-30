@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630012253) do
+ActiveRecord::Schema.define(version: 20160630013241) do
+
+  create_table "blocks", force: :cascade do |t|
+    t.string   "title"
+    t.string   "size"
+    t.string   "shape"
+    t.text     "text"
+    t.integer  "position"
+    t.boolean  "is_published"
+    t.string   "blockable_type"
+    t.integer  "blockable_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["blockable_type", "blockable_id"], name: "index_blocks_on_blockable_type_and_blockable_id"
+  end
 
   create_table "pages", force: :cascade do |t|
     t.string   "name"
