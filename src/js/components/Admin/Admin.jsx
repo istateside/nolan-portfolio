@@ -19,7 +19,6 @@ export class Admin extends React.Component {
   
   componentWillMount() {
     auth.onChange = this.updateAuth.bind(this);
-    auth.login();
   }
   
   render() {
@@ -43,18 +42,20 @@ export class Dashboard extends React.Component {
     return (
       <div>
         <h1>Dashboard</h1>
+        <p>You made it!</p>
+        <p>{token}</p>
       </div>
     )
   }
 }
 
 export class Login extends React.Component {
-
   constructor(props) {
     super(props);
     
     this.state = {error: false};
   }
+
   contextTypes: {
     router: React.PropTypes.func.isRequired
   };
@@ -62,10 +63,10 @@ export class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     
-    const username = this.refs.username.value;
+    const email = this.refs.email.value;
     const password = this.refs.password.value;
     
-    auth.login(username, password, (loggedIn) => {
+    auth.login(email, password, (loggedIn) => {
       if (!loggedIn) {
         return this.setState({ error: true });
       }
@@ -81,16 +82,17 @@ export class Login extends React.Component {
   }
   
   render() {
+    const handleSubmit = this.handleSubmit.bind(this);
     return (
-      <form className="login-form form form--login-form" onSubmit={this.handleSubmit.bind(this)}>
+      <form className="login-form form form--login-form" method='post' onSubmit={handleSubmit}>
         <label className="form__label">
           <span className="form__label-text"></span>
-          <input ref='username' type='text'/>
+          <input ref='email' name='email' type='text'/>
         </label>
         
         <label className="form__label">
           <span className="form__label-text"></span>
-          <input ref='password' type='password'/>
+          <input ref='password' name='password' type='password'/>
         </label>
         
         <button type='submit'>Login</button>
